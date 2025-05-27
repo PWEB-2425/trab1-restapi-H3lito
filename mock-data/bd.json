@@ -7,10 +7,34 @@
       "curso": 1,
       "anoCurricular": 2,
       "idade" : 21
+    },
+    {
+      "nome":"Bruna",
+      "apelido": "Alves",
+      "curso": 2,
+      "anoCurricular": 2,
+      "idade" : 22
+    },
+    {
+      "nome":"Carla",
+      "apelido": "Correia",
+      "curso": 2,
+      "anoCurricular": 1,
+      "idade" : 19
+    },
+
+    {
+      "nome":"Luis",
+      "apelido": "Silva",
+      "curso": 3,
+      "anoCurricular": 3,
+      "idade" : 22
     }
+
   ],
   "cursos": [
     { "id" : 1, "nomeDoCurso": "Engenharia da Computação Gráfica e Multimédia" },
-    { "id" : 2, "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores" }
+    { "id" : 2, "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores" },
+    { "id" : 3, "nomeDoCurso": "Engenharia Informática" }
   ]
 }
