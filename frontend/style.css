@@ -27,3 +27,17 @@ nav ul li a{
      color: #1e90ff; 
      box-shadow: 0 0 10px #1e90ffaa;
 }
+
+main{
+     background-color: #121212;      /* fundo escuro para combinar com o menu */
+  color: #1e90ff;                 /* texto azul igual aos links */
+  border: 2px solid #1e90ff;      /* borda azul */
+  padding: 20px;                  /* espaço interno confortável */
+  border-radius: 8px;             /* cantos arredondados */
+  box-shadow: 0 0 15px #1e90ffaa; /* sombra azul suave */
+  max-width: 800px;               /* largura máxima para melhor leitura */
+  margin: 20px auto;              /* centralizar e margem vertical */
+  margin-top: 200px;
+  font-size: 1.1rem;              /* texto um pouco maior */
+  line-height: 1.5;
+}
