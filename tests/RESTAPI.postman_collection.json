@@ -111,6 +111,84 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "inserção curso",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"nomeDoCurso\": \"Engenharia Civil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/cursos",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete curso por id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeDoCurso\": \"Engenharia Civil\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/cursos/ ",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cursos",
+						" "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alteração do nome curso pelo id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"id\": \"5\",\r\n    \"nomeDoCurso\": \"Design\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/cursos/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cursos",
+						"5"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

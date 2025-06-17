@@ -1,4 +1,3 @@
-
 {
   "alunos": [
     {
@@ -6,35 +5,50 @@
       "apelido": "Silva",
       "curso": 1,
       "anoCurricular": 2,
-      "idade" : 21
+      "idade": 21,
+      "id": "3b6e"
     },
     {
-      "nome":"Bruna",
+      "nome": "Bruna",
       "apelido": "Alves",
       "curso": 2,
       "anoCurricular": 2,
-      "idade" : 22
+      "idade": 22,
+      "id": "9047"
     },
     {
-      "nome":"Carla",
+      "nome": "Carla",
       "apelido": "Correia",
       "curso": 2,
       "anoCurricular": 1,
-      "idade" : 19
+      "idade": 19,
+      "id": "7a2b"
     },
-
     {
-      "nome":"Luis",
+      "nome": "Luis",
       "apelido": "Silva",
       "curso": 3,
       "anoCurricular": 3,
-      "idade" : 22
+      "idade": 22,
+      "id": "8fc3"
     }
-
   ],
   "cursos": [
-    { "id" : 1, "nomeDoCurso": "Engenharia da Computação Gráfica e Multimédia" },
-    { "id" : 2, "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores" },
-    { "id" : 3, "nomeDoCurso": "Engenharia Informática" }
+    {
+      "id": "1",
+      "nomeDoCurso": "Engenharia da Computação Gráfica e Multimédia"
+    },
+    {
+      "id": "2",
+      "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores"
+    },
+    {
+      "nomeDoCurso": "Engenharia Civil",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "nomeDoCurso": "Design"
+    }
   ]
 }
