@@ -1,45 +1,98 @@
 // JS para operações CRUD com Fetch API
 
-  document.getElementById('btnAlunos').addEventListener('click', function() {
-            document.getElementById('divAlunos').style.display = 'block';
-        });
 
-//document.getElementById("verAlunos").addEventListener("click", listarAlunos);
-async function listarAlunos(params) {
-   const apiUrl = 'http://localhost:3000/alunos'; 
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('curso')) {
+    carregarCursos();
+  }
 
-   const resposta = await fetch(apiUrl);
-   console.log(resposta);
-   const alunos = await resposta.json();
-   const tbodyAlunos = document.getElementById('tbodyAlunos');
-   console.log(alunosJS);
-  // let ulalunos = document.getElementById(listaAlunos);
-   console.log(ulalunos);
-   tbodyAlunos.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+  const formAluno = document.querySelector('form');
+  if (formAluno && formAluno.id !== 'cursoForm') {
+    formAluno.addEventListener('submit', adicionarAluno);
+  }
 
-   alunos.forEach(aluno => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${aluno.nome || ''}</td>
-                <td>${aluno.apelido || ''}</td>
-                <td>${aluno.curso || ''}</td>
-                <td>${aluno.ano || ''}</td>
-                <td>${aluno.idade || ''}</td>
-                <td>
-                    <button class="btn-editar" data-id="${aluno.id}">Editar</button>
-                    <button class="btn-excluir" data-id="${aluno.id}">Excluir</button>
-                </td>
-            `;
-            tbodyAlunos.appendChild(row);
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-    // Mostrar alunos quando clicar no botão
-    document.getElementById('btnAlunos').addEventListener('click', function() {
-        document.getElementById('divAlunos').style.display = 'block';
-        listarAlunos(); // Carrega os alunos quando a seção é aberta
-    });
+  const formCurso = document.querySelector('.curso-form');
+  if (formCurso) {
+    formCurso.addEventListener('submit', adicionarCurso);
+  }
 });
 
+async function carregarCursos() {
+  try {
+    const resposta = await fetch(API_CURSOS);
+    const cursos = await resposta.json();
+
+    const selectCurso = document.getElementById('curso');
+    selectCurso.innerHTML = '<option value="">Selecione um curso</option>';
+
+    cursos.forEach(curso => {
+      const option = document.createElement('option');
+      option.value = curso.nome;
+      option.textContent = curso.nome;
+      selectCurso.appendChild(option);
+    });
+  } catch (erro) {
+    console.error('Erro ao carregar cursos:', erro);
+    alert('Erro ao carregar lista de cursos.');
+  }
 }
 
+async function adicionarAluno(e) {
+  e.preventDefault();
+
+  const nome = document.getElementById('nome').value.trim();
+  const apelido = document.getElementById('apelido').value.trim();
+  const curso = document.getElementById('curso').value;
+  const ano = document.getElementById('ano').value;
+
+  if (!nome || !apelido || !curso || !ano) {
+    alert('Preenche todos os campos.');
+    return;
+  }
+
+  const aluno = { nome, apelido, curso, ano: parseInt(ano) };
+
+  try {
+    const resposta = await fetch(API_ALUNOS, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(aluno)
+    });
+
+    if (!resposta.ok) throw new Error('Erro ao adicionar aluno');
+
+    alert('Aluno adicionado com sucesso!');
+    e.target.reset();
+  } catch (erro) {
+    console.error('Erro:', erro);
+    alert('Não foi possível adicionar o aluno.');
+  }
+}
+
+async function adicionarCurso(e) {
+  e.preventDefault();
+
+  const input = document.getElementById('nomeDoCurso');
+  const nome = input.value.trim();
+
+  if (!nome) {
+    alert('Indica o nome do curso.');
+    return;
+  }
+
+  try {
+    const resposta = await fetch(API_CURSOS, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome })
+    });
+
+    if (!resposta.ok) throw new Error('Erro ao adicionar curso');
+
+    alert('Curso adicionado com sucesso!');
+    input.value = '';
+  } catch (erro) {
+    console.error('Erro ao adicionar curso:', erro);
+    alert('Erro ao registar curso.');
+  }
+}
