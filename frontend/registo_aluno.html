@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registo de Aluno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Gestão de alunos</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Registos▾</a>
+          <ul class="dropdown-content">
+            <li><a href="registo_aluno.html">Alunos</a></li>
+            <li><a href="registo_curso.html">Curso</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Consultas▾</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Alunos</a></li>
+            <li><a href="#">Curso</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="form-container">
+    <h2>Registo de Aluno</h2>
+    <form action="#" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="apelido">Apelido:</label>
+      <input type="text" id="apelido" name="apelido" required>
+
+      <label for="curso">Curso:</label>
+<select id="curso" name="curso" required>
+  <option value="">A carregar cursos...</option>
+</select>
+
+
+      <label for="ano">Ano Curricular:</label>
+      <select id="ano" name="ano" required>
+        <option value="">Selecione</option>
+        <option value="1">1º Ano</option>
+        <option value="2">2º Ano</option>
+        <option value="3">3º Ano</option>
+      </select>
+
+      <button type="submit">Registar</button>
+    </form>
+  </main>
+</body>
+</html>
+ <footer>
+    © 2022 Copyright: <a href="#">Gestão de Alunos</a>
+  </footer>

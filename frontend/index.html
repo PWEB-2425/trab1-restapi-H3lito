@@ -9,8 +9,29 @@
     <title>Gestão de alunos</title>
  </head>
  <body>
-   
-     <main>
+ <header class="navbar">
+    <div class="logo">Gestão de Alunos</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Registos▾</a>
+          <ul class="dropdown-content">
+            <li><a href="registo_aluno.html">Alunos</a></li>
+            <li><a href="registo_curso.html">Curso</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Consultas▾</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Alunos</a></li>
+            <li><a href="#">Curso</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+    <!-- <main>
     <h1>Bem-vindo ao sistema de gestão de alunos</h1>
     <p>Escolha uma opção no menu para começar.</p>
      <div>
@@ -34,12 +55,14 @@
          </tr>
       </thead>
       <tbody id="tbodyAlunos">
-         <!-- Os dados dos alunos serão inseridos aqui dinamicamente -->
+          Os dados dos alunos serão inseridos aqui dinamicamente
    </table>
+   -->
 
-    <button id="btnAddAluno" style="display: none;">Adicionar Aluno</button>
+    <!--<button id="btnAddAluno" style="display: none;">Adicionar Aluno</button>
   </div>
 
+  
    <div class="add-student">
             <h2 id="formTitle">Adicionar Aluno</h2>
             <form id="alunoForm">
@@ -64,14 +87,18 @@
                     <label for="curso">Curso:</label>
                     <select id="curso" required>
                         <option value="">Selecione um curso</option>
-                        <!-- Opções serão carregadas via JavaScript -->
+                         Opções serão carregadas via JavaScript 
                     </select>
                 </div>
                 <button type="submit" id="btnSubmit">Guardar</button>
                 <button type="button" id="btnCancelar" class="btn-cancelar">Cancelar</button>
             </form>
         </div>
-    </div>
+    </div>-->
+    
+     <footer>
+    © 2025 Copyright: <a href="#">Gestão de Alunos PW-ERSC</a>
+  </footer>
  </body>
 
  <script src="script.js"></script>  
