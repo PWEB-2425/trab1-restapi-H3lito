@@ -289,3 +289,155 @@ if (document.getElementById('tabelaAlunos')) {
     carregarCursosConsulta();
   });
 }
+
+// ==============================================
+// CONSULTA DE CURSOS
+// ==============================================
+
+async function carregarCursosConsulta() {
+  try {
+    const resposta = await fetch(API_CURSOS);
+    const cursos = await resposta.json();
+    exibirCursosTabela(cursos);
+  } catch (erro) {
+    console.error('Erro ao carregar cursos:', erro);
+    alert('Erro ao carregar lista de cursos.');
+  }
+}
+
+function exibirCursosTabela(cursos) {
+  const tbody = document.getElementById('tbodyCursos');
+  if (!tbody) return;
+  
+  tbody.innerHTML = '';
+
+  cursos.forEach(curso => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${curso.nomeDoCurso}</td>
+      <td>
+        <button class="btn-action btn-edit" data-id="${curso.id}">Editar</button>
+        <button class="btn-action btn-delete" data-id="${curso.id}">Excluir</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Adiciona eventos aos botões
+  document.querySelectorAll('.btn-edit').forEach(btn => {
+    btn.addEventListener('click', () => carregarCursoParaEdicao(btn.dataset.id));
+  });
+
+  document.querySelectorAll('.btn-delete').forEach(btn => {
+    btn.addEventListener('click', () => confirmarExclusaoCurso(btn.dataset.id));
+  });
+}
+
+async function carregarCursoParaEdicao(id) {
+  try {
+    const resposta = await fetch(`${API_CURSOS}/${id}`);
+    const curso = await resposta.json();
+    
+    document.getElementById('cursoId').value = curso.id;
+    document.getElementById('editNomeCurso').value = curso.nomeDoCurso;
+    document.getElementById('formCursoTitle').textContent = 'Editar Curso';
+  } catch (erro) {
+    console.error('Erro ao carregar curso:', erro);
+    alert('Erro ao carregar dados do curso.');
+  }
+}
+
+function confirmarExclusaoCurso(id) {
+  if (confirm('Tem certeza que deseja excluir este curso?')) {
+    excluirCurso(id);
+  }
+}
+
+async function excluirCurso(id) {
+  try {
+    const resposta = await fetch(`${API_CURSOS}/${id}`, {
+      method: 'DELETE'
+    });
+    
+    if (!resposta.ok) throw new Error('Erro ao excluir curso');
+    
+    alert('Curso excluído com sucesso!');
+    carregarCursosConsulta();
+    document.getElementById('cursoForm').reset();
+    document.getElementById('formCursoTitle').textContent = 'Editar Curso';
+  } catch (erro) {
+    console.error('Erro ao excluir curso:', erro);
+    alert('Erro ao excluir curso. Verifique se não há alunos vinculados.');
+  }
+}
+
+async function pesquisarCursos() {
+  const termo = document.getElementById('searchCursoInput').value.trim();
+  
+  try {
+    const resposta = await fetch(`${API_CURSOS}?nome=${termo}`);
+    const cursos = await resposta.json();
+    exibirCursosTabela(cursos);
+  } catch (erro) {
+    console.error('Erro ao pesquisar cursos:', erro);
+    alert('Erro ao pesquisar cursos.');
+  }
+}
+
+// Evento de submit do formulário de edição
+if (document.getElementById('cursoForm')) {
+  document.getElementById('cursoForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const id = document.getElementById('cursoId').value;
+    const nomeDoCurso = document.getElementById('editNomeCurso').value.trim();
+    
+    if (!nomeDoCurso) {
+      alert('Preencha o nome do curso.');
+      return;
+    }
+    
+    const curso = { nomeDoCurso };
+    
+    try {
+      const url = id ? `${API_CURSOS}/${id}` : API_CURSOS;
+      const method = id ? 'PUT' : 'POST';
+      
+      const resposta = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(curso)
+      });
+      
+      if (!resposta.ok) throw new Error('Erro ao salvar curso');
+      
+      alert('Curso salvo com sucesso!');
+      carregarCursosConsulta();
+      this.reset();
+      document.getElementById('formCursoTitle').textContent = 'Editar Curso';
+    } catch (erro) {
+      console.error('Erro:', erro);
+      alert('Não foi possível salvar o curso.');
+    }
+  });
+}
+
+// Botão cancelar
+if (document.getElementById('btnCancelarCurso')) {
+  document.getElementById('btnCancelarCurso').addEventListener('click', function() {
+    document.getElementById('cursoForm').reset();
+    document.getElementById('formCursoTitle').textContent = 'Editar Curso';
+  });
+}
+
+// Botão de pesquisa
+if (document.getElementById('btnSearchCurso')) {
+  document.getElementById('btnSearchCurso').addEventListener('click', pesquisarCursos);
+}
+
+// Carrega os dados quando a página de consulta é carregada
+if (document.getElementById('tabelaCursos')) {
+  document.addEventListener('DOMContentLoaded', () => {
+    carregarCursosConsulta();
+  });
+}

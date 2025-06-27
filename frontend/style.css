@@ -231,4 +231,78 @@ tr:hover {
   color: #000;
 }
 
-  
+
+/* Consulta de Cursos */
+.lista-cursos {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 2;
+}
+
+.form-edicao {
+  flex: 1;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+/*main{
+     background-color: #121212;      /* fundo escuro para combinar com o menu */
+  /*color: #1e90ff;                 /* texto azul igual aos links */
+  /*border: 2px solid #1e90ff;      /* borda azul */
+  /*padding: 20px;                  /* espaço interno confortável */
+  /*border-radius: 8px;             /* cantos arredondados */
+  /*box-shadow: 0 0 15px #1e90ffaa; /* sombra azul suave */
+  /*max-width: 800px;               /* largura máxima para melhor leitura */
+  /*margin: 20px auto;              /* centralizar e margem vertical */
+  /*margin-top: 200px;
+  /*font-size: 1.1rem;              /* texto um pouco maior */
+  /*line-height: 1.5;
+/*} */
+
+/*main div{
+    margin-bottom: 20px; /* espaçamento entre os blocos */
+    /*display: flex;
+    /*color: #1e90ff;
+   /* align-items: center; /* alinha os itens verticalmente */
+   /* justify-content: center; /* centraliza os itens horizontalmente */
+    
+/*} */
+/* h3{
+    color:#1e90ff;
+    font-size: 24px; /* tamanho do título */
+    /*margin-bottom: 10px; /* espaçamento abaixo do título */
+    /*text-align: justify;*/
+/*} */
+
+/*tr th{
+    color:#1e90ff;
+     text-align: center;
+    font-size: 18px;
+    box-shadow:shadow: 0 0 15px #1e90ffaa;
+}
+#btnAlunos{
+    background-color: #121212;
+    color: #1e90ff;
+     box-shadow: 0 0 15px #1e90ffaa;
+     font-size: 18px;
+     margin-right: 20px;
+}
+#btnCursos{
+    background-color: #121212;
+    color: #1e90ff;
+    box-shadow: 0 0 15px #1e90ffaa;
+    font-size: 18px;
+}
+
+.add-student {
+    background-color: #121212;
+    color: #1e90ff;
+    box-shadow: 0 0 15px #1e90ffaa;
+    display: none; /* Esconde o botão inicialmente ;
+   
+}*/
+
+>>>>>>> frontend
