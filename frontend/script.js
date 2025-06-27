@@ -1,5 +1,6 @@
 // JS para operações CRUD com Fetch API
-
+const API_CURSOS = 'http://localhost:3000/cursos';
+const API_ALUNOS = 'http://localhost:3000/alunos';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('curso')) {
@@ -27,8 +28,8 @@ async function carregarCursos() {
 
     cursos.forEach(curso => {
       const option = document.createElement('option');
-      option.value = curso.nome;
-      option.textContent = curso.nome;
+      option.value = curso.nomeDoCurso;
+      option.textContent = curso.nomeDoCurso;
       selectCurso.appendChild(option);
     });
   } catch (erro) {
@@ -73,9 +74,9 @@ async function adicionarCurso(e) {
   e.preventDefault();
 
   const input = document.getElementById('nomeDoCurso');
-  const nome = input.value.trim();
+  const nomeDoCurso = input.value.trim();
 
-  if (!nome) {
+  if (!nomeDoCurso) {
     alert('Indica o nome do curso.');
     return;
   }
@@ -84,7 +85,7 @@ async function adicionarCurso(e) {
     const resposta = await fetch(API_CURSOS, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome })
+      body: JSON.stringify({ nomeDoCurso })
     });
 
     if (!resposta.ok) throw new Error('Erro ao adicionar curso');
