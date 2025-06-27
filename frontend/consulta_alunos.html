@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Alunos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Gestão de Alunos</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Registos▾</a>
+          <ul class="dropdown-content">
+            <li><a href="registo_aluno.html">Alunos</a></li>
+            <li><a href="registo_curso.html">Curso</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Consultas▾</a>
+          <ul class="dropdown-content">
+            <li><a href="consulta_alunos.html">Alunos</a></li>
+            <li><a href="#">Curso</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="consulta-container">
+    <section class="lista-alunos">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Pesquisar por nome...">
+        <button id="btnSearch">Pesquisar</button>
+      </div>
+      
+      <h2>Lista de Alunos</h2>
+      <table id="tabelaAlunos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Apelido</th>
+            <th>Curso</th>
+            <th>Ano</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyAlunos">
+          <!-- Dados serão carregados via JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="form-edicao">
+      <h2 id="formTitle">Editar Aluno</h2>
+      <form id="alunoForm">
+        <input type="hidden" id="alunoId">
+        <div class="form-group">
+          <label for="editNome">Nome:</label>
+          <input type="text" id="editNome" required>
+        </div>
+        <div class="form-group">
+          <label for="editApelido">Apelido:</label>
+          <input type="text" id="editApelido" required>
+        </div>
+        <div class="form-group">
+          <label for="editCurso">Curso:</label>
+          <select id="editCurso" required>
+            <option value="">Carregando cursos...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="editAno">Ano Curricular:</label>
+          <select id="editAno" required>
+            <option value="">Selecione</option>
+            <option value="1">1º Ano</option>
+            <option value="2">2º Ano</option>
+            <option value="3">3º Ano</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btnSalvar">Salvar Alterações</button>
+          <button type="button" id="btnExcluir" class="btn-excluir">Excluir Aluno</button>
+          <button type="button" id="btnCancelar" class="btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Copyright: <a href="#">Gestão de Alunos PW-ERSC</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
