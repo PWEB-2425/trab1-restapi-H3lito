@@ -3,34 +3,37 @@
     {
       "nome": "Joana",
       "apelido": "Silva",
-      "curso": 1,
-      "anoCurricular": 2,
-      "idade": 21,
+      "curso": "Engenharia da Computação Gráfica e Multimédia",
+      "ano": 1,
       "id": "2056"
     },
     {
       "nome": "Bruna",
       "apelido": "Alves",
-      "curso": 2,
-      "anoCurricular": 2,
-      "idade": 22,
+      "curso": "Engenharia de Redes e Sistemas de Computadores",
+      "ano": 2,
       "id": "798e"
     },
     {
       "nome": "Carla",
       "apelido": "Correia",
-      "curso": 2,
-      "anoCurricular": 1,
-      "idade": 19,
+      "curso": "Engenharia da Computação Gráfica e Multimédia",
+      "ano": 3,
       "id": "4832"
     },
     {
       "nome": "Luis",
       "apelido": "Silva",
-      "curso": 3,
-      "anoCurricular": 3,
-      "idade": 22,
+      "curso": "Engenharia de Redes e Sistemas de Computadores",
+      "ano": 2,
       "id": "13b2"
+    },
+    {
+      "id": "979e",
+      "nome": "Cátia",
+      "apelido": "Teixeira",
+      "curso": "Engenharia Informática",
+      "ano": 3
     }
   ],
   "cursos": [
