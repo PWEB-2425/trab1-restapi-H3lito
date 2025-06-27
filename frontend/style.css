@@ -231,6 +231,22 @@ tr:hover {
   color: #000;
 }
 
+/* Consulta de Cursos */
+.lista-cursos {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 2;
+}
+
+.form-edicao {
+  flex: 1;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
 /*main{
      background-color: #121212;      /* fundo escuro para combinar com o menu */
   /*color: #1e90ff;                 /* texto azul igual aos links */

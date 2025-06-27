@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Cursos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Gestão de Cursos</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Registos▾</a>
+          <ul class="dropdown-content">
+            <li><a href="registo_aluno.html">Alunos</a></li>
+            <li><a href="registo_curso.html">Curso</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Consultas▾</a>
+          <ul class="dropdown-content">
+            <li><a href="consulta_alunos.html">Alunos</a></li>
+            <li><a href="consulta_cursos.html">Cursos</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="consulta-container">
+    <section class="lista-cursos">
+      <div class="search-container">
+        <input type="text" id="searchCursoInput" placeholder="Pesquisar por nome...">
+        <button id="btnSearchCurso">Pesquisar</button>
+      </div>
+      
+      <h2>Lista de Cursos</h2>
+      <table id="tabelaCursos">
+        <thead>
+          <tr>
+            <th>Nome do Curso</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyCursos">
+          <!-- Dados serão carregados via JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="form-edicao">
+      <h2 id="formCursoTitle">Editar Curso</h2>
+      <form id="cursoForm">
+        <input type="hidden" id="cursoId">
+        <div class="form-group">
+          <label for="editNomeCurso">Nome do Curso:</label>
+          <input type="text" id="editNomeCurso" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btnSalvarCurso">Salvar Alterações</button>
+          <button type="button" id="btnExcluirCurso" class="btn-excluir">Excluir Curso</button>
+          <button type="button" id="btnCancelarCurso" class="btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Copyright: <a href="#">Gestão de Cursos PW-ERSC</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
