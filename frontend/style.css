@@ -123,6 +123,112 @@ form button:hover {
   background-color: #3892e0;
 }
 
+/* Consulta de Alunos */
+.consulta-container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
 
+.lista-alunos {
+  flex: 2;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-edicao {
+  flex: 1;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px;
+  background-color: #2e2e2e;
+  border: 1px solid #555;
+  color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 10px 15px;
+  background-color: #4fa3ff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #3892e0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background-color: #2e2e2e;
+  color: #4fa3ff;
+}
+
+tr:hover {
+  background-color: #2e2e2e;
+}
+
+.btn-action {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #4fa3ff;
+  color: #000;
+}
+
+.btn-delete {
+  background-color: #ff4f4f;
+  color: #000;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-excluir {
+  background-color: #ff4f4f;
+  color: #000;
+}
+
+.btn-cancelar {
+  background-color: #888;
+  color: #000;
+}
 
   
