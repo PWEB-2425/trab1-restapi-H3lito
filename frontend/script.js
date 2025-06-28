@@ -125,8 +125,8 @@ function exibirAlunosTabela(alunos) {
       <td>${aluno.curso}</td>
       <td>${aluno.ano}º Ano</td>
       <td>
-        <button class="btn-action btn-edit" data-id="${aluno.id}">Editar</button>
-        <button class="btn-action btn-delete" data-id="${aluno.id}">Excluir</button>
+        <button class="btn-action btn-edit" data-id="${aluno._id}">Editar</button>
+        <button class="btn-action btn-delete" data-id="${aluno._id}">Excluir</button>
       </td>
     `;
     tbody.appendChild(tr);
@@ -148,13 +148,13 @@ async function carregarAlunoParaEdicao(id) {
     const resposta = await fetch(`${API_ALUNOS}/${id}`);
     const aluno = await resposta.json();
     
-    document.getElementById('alunoId').value = aluno.id;
+    document.getElementById('alunoId').value = aluno._id;
     document.getElementById('editNome').value = aluno.nome;
     document.getElementById('editApelido').value = aluno.apelido;
     document.getElementById('editAno').value = aluno.ano;
     
     // Carrega os cursos e seleciona o curso do aluno
-    await carregarCursosConsulta(aluno.curso);
+    await carregarCursosSelect(aluno.curso);
     
     document.getElementById('formTitle').textContent = 'Editar Aluno';
   } catch (erro) {
@@ -164,13 +164,14 @@ async function carregarAlunoParaEdicao(id) {
 }
 
 // Função para carregar cursos no select de edição
-async function carregarCursosConsulta(cursoSelecionado = '') {
+async function carregarCursosSelect(cursoSelecionado = '') {
   const selectCurso = document.getElementById('editCurso');
   if (!selectCurso) return;
   
   try {
     const resposta = await fetch(API_CURSOS);
     const cursos = await resposta.json();
+  
     
     selectCurso.innerHTML = '<option value="">Selecione um curso</option>';
     
@@ -316,8 +317,8 @@ function exibirCursosTabela(cursos) {
     tr.innerHTML = `
       <td>${curso.nomeDoCurso}</td>
       <td>
-        <button class="btn-action btn-edit" data-id="${curso.id}">Editar</button>
-        <button class="btn-action btn-delete" data-id="${curso.id}">Excluir</button>
+        <button class="btn-action btn-edit" data-id="${curso._id}">Editar</button>
+        <button class="btn-action btn-delete" data-id="${curso._id}">Excluir</button>
       </td>
     `;
     tbody.appendChild(tr);
@@ -338,7 +339,7 @@ async function carregarCursoParaEdicao(id) {
     const resposta = await fetch(`${API_CURSOS}/${id}`);
     const curso = await resposta.json();
     
-    document.getElementById('cursoId').value = curso.id;
+    document.getElementById('cursoId').value = curso._id;
     document.getElementById('editNomeCurso').value = curso.nomeDoCurso;
     document.getElementById('formCursoTitle').textContent = 'Editar Curso';
   } catch (erro) {

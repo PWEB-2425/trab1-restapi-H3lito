@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controller/alunoController');
+const controller = require('../controllers/alunoController');
 
 router.get('/', controller.getAll);
 router.get('/:id', controller.getById);
