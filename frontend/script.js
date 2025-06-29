@@ -2,6 +2,35 @@
 const API_CURSOS = 'http://localhost:3000/cursos';
 const API_ALUNOS = 'http://localhost:3000/alunos';
 
+//TESTES
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdowns = document.querySelectorAll(".dropdown");
+
+  dropdowns.forEach((dropdown) => {
+    const trigger = dropdown.querySelector("a");
+
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault(); // Impede o salto de link
+      dropdown.classList.toggle("show");
+
+      // Fecha outros dropdowns
+      dropdowns.forEach((otherDropdown) => {
+        if (otherDropdown !== dropdown) {
+          otherDropdown.classList.remove("show");
+        }
+      });
+    });
+  });
+
+  // Fecha os dropdowns se clicares fora
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".dropdown")) {
+      dropdowns.forEach((dropdown) => dropdown.classList.remove("show"));
+    }
+  });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('curso')) {
     carregarCursos();
@@ -51,7 +80,7 @@ async function adicionarAluno(e) {
     return;
   }
 
-  const aluno = { nome, apelido, curso, ano: parseInt(ano) };
+  const aluno = { nome, apelido, curso, anoCurricular: parseInt(ano) };
 
   try {
     const resposta = await fetch(API_ALUNOS, {
@@ -123,7 +152,7 @@ function exibirAlunosTabela(alunos) {
       <td>${aluno.nome}</td>
       <td>${aluno.apelido}</td>
       <td>${aluno.curso}</td>
-      <td>${aluno.ano}º Ano</td>
+      <td>${aluno.anoCurricular}º Ano</td>
       <td>
         <button class="btn-action btn-edit" data-id="${aluno._id}">Editar</button>
         <button class="btn-action btn-delete" data-id="${aluno._id}">Excluir</button>
@@ -151,7 +180,7 @@ async function carregarAlunoParaEdicao(id) {
     document.getElementById('alunoId').value = aluno._id;
     document.getElementById('editNome').value = aluno.nome;
     document.getElementById('editApelido').value = aluno.apelido;
-    document.getElementById('editAno').value = aluno.ano;
+    document.getElementById('editAno').value = aluno.anoCurricular;
     
     // Carrega os cursos e seleciona o curso do aluno
     await carregarCursosSelect(aluno.curso);
@@ -221,6 +250,7 @@ async function pesquisarAlunos() {
   
   try {
     const resposta = await fetch(`${API_ALUNOS}?nome=${termo}`);
+   
     const alunos = await resposta.json();
     exibirAlunosTabela(alunos);
   } catch (erro) {
@@ -245,7 +275,7 @@ if (document.getElementById('alunoForm')) {
       return;
     }
     
-    const aluno = { nome, apelido, curso, ano: parseInt(ano) };
+    const aluno = { nome, apelido, curso, anoCurricular: parseInt(ano) };
     
     try {
       const url = id ? `${API_ALUNOS}/${id}` : API_ALUNOS;
@@ -374,7 +404,6 @@ async function excluirCurso(id) {
 
 async function pesquisarCursos() {
   const termo = document.getElementById('searchCursoInput').value.trim();
-  
   try {
     const resposta = await fetch(`${API_CURSOS}?nome=${termo}`);
     const cursos = await resposta.json();
@@ -384,6 +413,7 @@ async function pesquisarCursos() {
     alert('Erro ao pesquisar cursos.');
   }
 }
+
 
 // Evento de submit do formulário de edição
 if (document.getElementById('cursoForm')) {

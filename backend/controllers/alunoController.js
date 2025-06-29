@@ -16,7 +16,7 @@ exports.getAll = async (req, res) => {
 
   try {
     const alunos = await Aluno.find(filtro)
-      .select('nome apelido curso ano') // Seleciona apenas os campos necessários
+      .select('nome apelido curso anoCurricular') // Seleciona apenas os campos necessários
       .lean(); // Converte para objeto JavaScript puro
 
     // Verifica se há resultados

@@ -1,10 +1,32 @@
 const Curso = require('../models/curso');
 
 exports.getAll = async (req, res) => {
-    const cursos = await Curso.find();
+  const nome = req.query.nome;
+  let filtro = {};
+
+  // Filtra pelo campo nomeDoCurso, caso receba o parâmetro nome
+  if (nome) {
+    filtro = {
+      nomeDoCurso: { $regex: nome, $options: 'i' }
+    };
+  }
+
+  try {
+    const cursos = await Curso.find(filtro)
+      .select('nomeDoCurso') // só traz o campo nomeDoCurso (pode incluir mais se quiser)
+      .lean();
+
+    if (cursos.length === 0 && nome) {
+      return res.status(404).json({ msg: 'Nenhum curso encontrado' });
+    }
 
     res.json(cursos);
+  } catch (erro) {
+    console.error('Erro ao buscar cursos:', erro);
+    res.status(500).json({ msg: 'Erro interno ao buscar cursos' });
+  }
 };
+
 
 exports.getById = async (req, res) => {
     const curso = await Curso.findById(req.params.id);
