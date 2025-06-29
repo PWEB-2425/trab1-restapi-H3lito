@@ -1,5 +1,6 @@
 # Sistema de Gestão de Alunos e Cursos
-
+# Nome: Hélito de Jesus Mendes de Horta
+# Nº: 32440
 
 ## 📋 Descrição
 
