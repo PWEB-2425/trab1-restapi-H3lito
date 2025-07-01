@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./connection');
-
 const app = express();
+const dotenv = require('dotenv');
 
 // Liga ao MongoDB
 connectDB();

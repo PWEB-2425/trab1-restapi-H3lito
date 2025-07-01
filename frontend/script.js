@@ -1,6 +1,8 @@
 // JS para operações CRUD com Fetch API
-const API_CURSOS = 'http://localhost:3000/cursos';
-const API_ALUNOS = 'http://localhost:3000/alunos';
+// API Endpoints
+// As URLs da API são definidas para os cursos e alunos
+const API_CURSOS = 'https://trab1-restapi-h3lito.onrender.com/cursos';
+const API_ALUNOS = 'https://trab1-restapi-h3lito.onrender.com/alunos';
 
 //TESTES
 document.addEventListener("DOMContentLoaded", function () {
