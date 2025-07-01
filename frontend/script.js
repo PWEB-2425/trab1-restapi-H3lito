@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
+// Carregar cursos ao iniciar a página
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('curso')) {
     carregarCursos();
@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formCurso.addEventListener('submit', adicionarCurso);
   }
 });
+// Função para carregar cursos no select do formulário de alunos
+// Esta função é chamada quando a página é carregada ou quando o formulário de alunos é aberto
 
 async function carregarCursos() {
   try {
@@ -67,6 +69,8 @@ async function carregarCursos() {
   }
 }
 
+// Função para adicionar aluno
+// Esta função é chamada quando o formulário de alunos é submetido
 async function adicionarAluno(e) {
   e.preventDefault();
 
@@ -98,6 +102,9 @@ async function adicionarAluno(e) {
     alert('Não foi possível adicionar o aluno.');
   }
 }
+
+// Função para adicionar curso  
+// Esta função é chamada quando o formulário de cursos é submetido
 
 async function adicionarCurso(e) {
   e.preventDefault();
