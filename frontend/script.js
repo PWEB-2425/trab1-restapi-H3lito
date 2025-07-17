@@ -7,6 +7,11 @@ const API_ALUNOS = 'https://trab1-restapi-h3lito.onrender.com/alunos';
 //TESTES
 document.addEventListener("DOMContentLoaded", function () {
   const dropdowns = document.querySelectorAll(".dropdown");
+  const loginBtn = document.getElementById("loginBtn");
+  const loginForm = document.getElementById("loginForm");
+
+  
+
 
   dropdowns.forEach((dropdown) => {
     const trigger = dropdown.querySelector("a");
@@ -32,11 +37,41 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+setInterval(() => {
+  plusSlides(1);
+}, 4000); // muda a imagem a cada 4 segundos
+ 
 // Carregar cursos ao iniciar a página
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('curso')) {
     carregarCursos();
+    showSlides();
   }
+
+   //INDEX
+let slideIndex = 0;
+showSlides();
+
+function plusSlides(n) {
+  let slides = document.getElementsByClassName("carousel-slide");
+  if (slides.length === 0) return;
+  slideIndex += n;
+  showSlides();
+}
+window.plusSlides = plusSlides;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("carousel-slide");
+  if (slideIndex >= slides.length) { slideIndex = 0 }
+  if (slideIndex < 0) { slideIndex = slides.length - 1 }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+window.showSlides= showSlides;
 
   const formAluno = document.querySelector('form');
   if (formAluno && formAluno.id !== 'cursoForm') {
@@ -329,7 +364,6 @@ if (document.getElementById('tabelaAlunos')) {
     carregarCursosConsulta();
   });
 }
-
 // ==============================================
 // CONSULTA DE CURSOS
 // ==============================================

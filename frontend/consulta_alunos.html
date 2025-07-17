@@ -4,26 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consulta de Alunos</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">Gestão de Alunos</div>
+ <header class="navbar">
+   <div class="logo">
+      <img src="/images/logo.png" alt="">
+    </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html"><i class="bi bi-house-door-fill"></i> Home</a></li>
         <li class="dropdown">
-          <a href="#">Registos▾</a>
+           <a href="#"><i class="bi bi-pencil-square"></i> Registos ▾</a>
           <ul class="dropdown-content">
-            <li><a href="registo_aluno.html">Alunos</a></li>
-            <li><a href="registo_curso.html">Curso</a></li>
+            <li><a href="registo_aluno.html"><i class="bi-person-plus"></i> Alunos</a></li>
+            <li><a href="registo_curso.html"><i class="bi-journal-plus"></i> Curso</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#">Consultas▾</a>
+          <a href="#"><i class="bi bi-search"></i> Consultas ▾</a>
           <ul class="dropdown-content">
-            <li><a href="consulta_alunos.html">Alunos</a></li>
-            <li><a href="consulta_curso.html">Curso</a></li>
+            <li><a href="consulta_alunos.html"><i class="bi-people"></i> Alunos</a></li>
+            <li><a href="consulta_curso.html"><i class="bi-journal-text"></i> Curso</a></li>
           </ul>
         </li>
       </ul>
@@ -34,18 +39,18 @@
     <section class="lista-alunos">
       <div class="search-container">
         <input type="text" id="searchInput" placeholder="Pesquisar por nome...">
-        <button id="btnSearch">Pesquisar</button>
+        <button id="btnSearch"><i class="bi bi-search"></i> Pesquisar</button>
       </div>
       
-      <h2>Lista de Alunos</h2>
+      <h2><i class="bi bi-people"></i> Lista de Alunos</h2>
       <table id="tabelaAlunos">
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Apelido</th>
-            <th>Curso</th>
-            <th>Ano</th>
-            <th>Ações</th>
+            <th><i class="bi bi-person"></i> Nome</th>
+            <th><i class="bi bi-person-vcard"></i> Apelido</th>
+            <th><i class="bi bi-mortarboard"></i> Curso</th>
+            <th><i class="bi bi-book"></i> Ano</th>
+            <th><i class="bi bi-eye"></i> Ações</th>
           </tr>
         </thead>
         <tbody id="tbodyAlunos">
@@ -55,25 +60,25 @@
     </section>
 
     <section class="form-edicao">
-      <h2 id="formTitle">Editar Aluno</h2>
+      <h2 id="formTitle"><i class="bi bi-pencil-square"></i> Editar Aluno</h2>
       <form id="alunoForm">
         <input type="hidden" id="alunoId">
         <div class="form-group">
-          <label for="editNome">Nome:</label>
+          <label for="editNome"><i class="bi bi-person"></i> Nome:</label>
           <input type="text" id="editNome" required>
         </div>
         <div class="form-group">
-          <label for="editApelido">Apelido:</label>
+          <label for="editApelido"><i class="bi bi-person-vcard"></i> Apelido:</label>
           <input type="text" id="editApelido" required>
         </div>
         <div class="form-group">
-          <label for="editCurso">Curso:</label>
+          <label for="editCurso"><i class="bi bi-mortarboard"> </i>Curso:</label>
           <select id="editCurso" required>
             <option value="">Carregando cursos...</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="editAno">Ano Curricular:</label>
+          <label for="editAno"> <i class="bi bi-book"></i> Ano Curricular:</label>
           <select id="editAno" required>
             <option value="">Selecione</option>
             <option value="1">1º Ano</option>
@@ -82,16 +87,35 @@
           </select>
         </div>
         <div class="form-actions">
-          <button type="submit" id="btnSalvar">Salvar Alterações</button>
-          <button type="button" id="btnExcluir" class="btn-excluir">Excluir Aluno</button>
-          <button type="button" id="btnCancelar" class="btn-cancelar">Cancelar</button>
+          <button type="submit" id="btnSalvar"><i class="bi bi-save"></i> Salvar Alterações</button>
+          <button type="button" id="btnExcluir" class="btn-excluir"><i class="bi bi-trash"></i> Excluir Aluno</button>
+          <button type="button" id="btnCancelar" class="btn-cancelar"><i class="bi bi-x-circle"></i> Cancelar</button>
         </div>
       </form>
     </section>
   </main>
-  <script src="script.js"></script>
+  <!-- Secção de Contacto -->
+<section class="contacto">
+  <h2>CONTACTO</h2>
+  <div class="contacto-container">
+    <div class="info">
+      <p><i class="bi bi-geo-alt-fill"></i><strong> Morada:</strong> Largo de Santa Catarina, 6, 2ºESQ, 4900-370 Viana do Castelo</p>
+      <p><i class="bi bi-telephone-fill"></i> <strong> Telemóvel:</strong> +351 927125767</p>
+      <p><i class="bi bi-envelope-fill"></i><strong> Email:</strong> helitohorta@ipvc.pt</p>
+    </div>
+    <div class="mapa">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.430378213513!2d-8.837238224612303!3d41.689643977193455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd25b62811fb3c45%3A0xf37bc72cdac777bc!2sLargo%20de%20Santa%20Catarina%2C%204900-372%20Viana%20do%20Castelo!5e0!3m2!1spt-PT!2spt!4v1752500105623!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        width="300" 
+        height="300" >
+      </iframe>
+    </div>
+  </div>
+</section>
+
+    <script src="script.js"></script>
   <footer>
-    © 2025 Copyright: <a href="#">Gestão de Alunos PW-ERSC</a>
+    © 2025 Copyright: <a href="#">Gestão de Alunos PW-ERSC | Desenvolvido por Hélito de Horta</a>
   </footer>
 </body>
 </html>
